@@ -1,0 +1,101 @@
+
+please send those to  route http://locolhost:3000/emp/new
+
+
+
+employee one :
+
+{
+
+  "name":"ahmed",
+  "password":"1234",
+  "department_id":"1"
+  
+ 
+
+}
+
+
+
+employee two:
+{
+
+  "name":"mohamed",
+  "password":"0987",
+  "department_id":"2"
+ 
+
+}
+
+
+please send those to  route http://locolhost:3000/emp/new
+
+managers are employee but have managed depart
+
+
+
+manager one :
+
+{
+
+ "name":"managerOfDep1",
+ "password":"12345",
+ "department_id":"1",
+ "managed_Dep":"1"
+ 
+
+}
+
+
+
+manager two:
+{
+
+ "name":"managerOfDep2",
+ "password":"1234567",
+ "department_id":"2",
+ "managed_Dep":"2"
+
+}
+
+
+
+[it,business]
+
+
+
+please send those to form router "http://locolhost:3000/dep"  to add department
+
+
+
+department:
+{
+
+ "name":"business",
+ "ID":"2"
+ 
+
+}
+
+
+department:
+{
+
+ "name":"IT",
+ "ID":"1"
+
+}
+
+
+one form 
+
+two loops 
+
+one dropdown 
+
+
+
+
+
+
+
