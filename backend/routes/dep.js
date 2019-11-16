@@ -65,9 +65,10 @@ router.get('/',(req,res)=>{
 //finding requests for specific department
 router.get('/:ID',(req,res)=>{ 
     // must here find by the user id to view his requests and the status
-    requestModel.find({department_id:req.params.ID,status:"Not seen"})
+    requestModel.find({department_id:req.params.ID,status:{$in:["Not seen","accepted"]}})
     .then((data)=>
     {
+        
      res.json(data);
     })
     .catch((err)=>

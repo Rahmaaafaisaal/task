@@ -2,6 +2,28 @@ const express = require('express');
 const router = express.Router();
 const requsetModel=require('../models/requests');
 
+const multer = require('multer');
+const storage = multer.diskStorage({
+  destination: 'public/upload/',
+  filename: function (req, file, cb) {
+
+    cb(null, file.originalname);
+  }
+});
+const upload = multer({ storage: storage });
+
+router.post('/img/:id', upload.single('photo'), (req, res) => {
+  requsetModel.update({_id:req.params.id.substring(3)},{imgName:req.file.originalname}).then(data=>{
+  console.log(data)
+}
+) 
+  if (req.file) {
+      console.log("image came");
+      res.send("done");
+    }
+    else res.send("failed");
+  
+  })
 
   
 // finding emp requests
@@ -22,6 +44,18 @@ router.get('/:name',(req,res)=>{
 
 
 
+router.post('/newNote',(req,res)=>{
+   
+    requsetModel.update({_id:req.body._id.substring(3)},{notes:req.body.note}).then(data=>{
+        console.log(data)
+        res.send(data)
+    }
+    )
+
+
+
+})
+
 
 // adding new request 
 router.post('/',(req,res)=>{
@@ -40,5 +74,13 @@ router.post('/',(req,res)=>{
 
 })
 
+router.get('/',(req,res)=>{
+    requsetModel.find({_id:"5dc3362a0b9ebc3c36b5999c"}).then(
+        data=>{
+            console.log(data)
+            res.send(data)
+        }
+    )
+})
 
 module.exports=router;

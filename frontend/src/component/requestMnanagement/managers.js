@@ -18,6 +18,7 @@ class ManagingRequest extends Component {
         }
   
         this.handleClick=this.handleClick.bind(this)
+        this.addNotes=this.addNotes.bind(this)
     }
     
 
@@ -75,7 +76,11 @@ class ManagingRequest extends Component {
     
     }
 
-    
+
+   
+    addNotes(e){
+            this.props.history.push('/notes/id='+e.target.id);
+      }
 
     render()
     {
@@ -109,9 +114,20 @@ class ManagingRequest extends Component {
                     <div className="card-body">
                     <h5 className="card-title">Description</h5>
                     <p className="card-text">{element.description}</p>
-                    <button id={element._id} type="button" name="delete" onClick={this.handleRequest} class="btn btn-danger">Decline</button>
+                    {
+                        element.status=="accepted"?<div>
+                            
+                        <button   type="button" name="addNotes" id={element._id} onClick={this.addNotes} className="btn btn-success">Notes</button>
+                            
+                            </div>:
+                   <div>
+                    <button id={element._id} type="button" name="delete" onClick={this.handleRequest} className="btn btn-danger">Decline</button>
                     <span>        </span>
-                    <button  id={element._id} type="button" name="accept" onClick={this.handleRequest} class="btn btn-success">Accept</button>
+                    <button  id={element._id} type="button" name="accept" onClick={this.handleRequest} className="btn btn-success">Accept</button>
+                    </div>
+                    }
+                    
+                   
                     </div>
                     </div>
                     )

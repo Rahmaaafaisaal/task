@@ -19,7 +19,9 @@ const requests = mongoose.Schema(
         required: true,
         
     },
-    managed_Department:{type:String}
+    managed_Department:{type:String},
+    notes:{type:String},
+    imgName:{type:String}
     
 
     }

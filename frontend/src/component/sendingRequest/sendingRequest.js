@@ -87,6 +87,17 @@ class RequestManagement extends React.Component {
                     <div className="card-body">
                     <h5 className="card-title">Description</h5>
                     <p className="card-text">{element.description}</p>
+                    {element.imgName ? <div>
+                        <h6 style={{fontWeight:"bold"}}>Attachment</h6>
+                        <img src={'http://localhost:5000/image/'+element.imgName}></img>
+                        </div> : <p></p>}
+                        {
+                            element.notes ? <div>
+                                <br></br>
+                                <h6 style={{fontWeight:"bold"}}>Notes</h6>
+                                <p className="card-text">{element.notes}</p>
+                                </div> : <p></p>
+                        }
                     </div>
                     </div>
                     )
